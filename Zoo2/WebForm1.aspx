@@ -17,7 +17,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp; EMPLOYEE FORM&nbsp;&nbsp;
         </p>
         <p>
-&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+&nbsp;<asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
 &nbsp;ID
         </p>
         <p>
