@@ -124,6 +124,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="WebForm1.aspx" />
     <Content Include="AnimalForm.aspx" />
+    <Content Include="AnimalReport.aspx" />
     <None Include="Properties\PublishProfiles\ZooForm - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -222,6 +223,13 @@
     </Compile>
     <Compile Include="AnimalForm.aspx.designer.cs">
       <DependentUpon>AnimalForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AnimalReport.aspx.cs">
+      <DependentUpon>AnimalReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnimalReport.aspx.designer.cs">
+      <DependentUpon>AnimalReport.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

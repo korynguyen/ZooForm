@@ -33,7 +33,7 @@ namespace Zoo2
                 sqlCmd.Parameters.AddWithValue("s_Species", Species.Text);
                 sqlCmd.Parameters.AddWithValue("s_Diet", Diet.Text);
                 sqlCmd.Parameters.AddWithValue("s_Sex", Sex.Text);
-                sqlCmd.Parameters.AddWithValue("s_DeceasedDate", "0000-00-00");
+                //sqlCmd.Parameters.AddWithValue("s_DeceasedDate", "0000-00-00");
                 sqlCmd.Parameters.AddWithValue("s_DOB", DOB.Text);
                 sqlCmd.Parameters.AddWithValue("s_CarerID", CarerID.Text);
                 sqlCmd.Parameters.AddWithValue("s_Attraction_Name", AttractionName.Text);
