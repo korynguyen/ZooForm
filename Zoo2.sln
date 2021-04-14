@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo2", "Zoo2\Zoo2.csproj", "{12A5AE6D-CDFD-48A5-91D2-144A7510D195}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee Form", "Zoo2\Employee Form.csproj", "{12A5AE6D-CDFD-48A5-91D2-144A7510D195}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animal Form", "Animal Form\Animal Form.csproj", "{2ADEAA1E-C719-4D0F-8765-552A8F0EB257}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animal Report", "Animal Report\Animal Report.csproj", "{77E10969-3F38-4683-8468-14ED8347A46C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{12A5AE6D-CDFD-48A5-91D2-144A7510D195}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12A5AE6D-CDFD-48A5-91D2-144A7510D195}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12A5AE6D-CDFD-48A5-91D2-144A7510D195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ADEAA1E-C719-4D0F-8765-552A8F0EB257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ADEAA1E-C719-4D0F-8765-552A8F0EB257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ADEAA1E-C719-4D0F-8765-552A8F0EB257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ADEAA1E-C719-4D0F-8765-552A8F0EB257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77E10969-3F38-4683-8468-14ED8347A46C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E10969-3F38-4683-8468-14ED8347A46C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E10969-3F38-4683-8468-14ED8347A46C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E10969-3F38-4683-8468-14ED8347A46C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
