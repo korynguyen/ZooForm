@@ -20,6 +20,34 @@ namespace Zoo2
         {
 
         }
+
+        protected void Update_Click(object sender, EventArgs e)
+        {
+            using (MySqlConnection sqlConnection = new MySqlConnection(connection))
+            {
+                try
+                {
+                    sqlConnection.Open();
+
+                    //have to remove dashes for sql statements on dates
+                    string noDashesDate = updatedeath.Text.Substring(0, 4) + updatedeath.Text.Substring(5, 2) + updatedeath.Text.Substring(8, 2);
+                    string sql = "UPDATE animal SET DeceasedDate = " + noDashesDate + " WHERE ID = " + updateid.Text + ";";
+
+                    MySqlCommand sqlCmd = new MySqlCommand(sql, sqlConnection);//UPDATE animal SET DeceasedDate = newDate WHERE ID = animalId;
+                    sqlCmd.ExecuteNonQuery(); // execute query
+
+                    string message = "Updated Decease Date for animal with id: " + updateid.Text;
+
+                    reportTable.Text = "<p>Updated Deceased Date for animal with id " + updateid.Text + ".</p>";
+                    sqlConnection.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex.ToString());
+                }
+            }
+        }
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             //Specify and connect to the DB

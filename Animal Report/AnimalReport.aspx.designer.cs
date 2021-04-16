@@ -283,6 +283,33 @@ namespace Zoo2 {
         protected global::System.Web.UI.WebControls.Button SubmitButton;
         
         /// <summary>
+        /// updateid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox updateid;
+        
+        /// <summary>
+        /// updatedeath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox updatedeath;
+        
+        /// <summary>
+        /// updateMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal updateMessage;
+        
+        /// <summary>
         /// reportTable control.
         /// </summary>
         /// <remarks>

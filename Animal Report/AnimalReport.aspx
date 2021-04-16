@@ -82,6 +82,21 @@
         <div style="margin: 10px"> 
             <asp:Button ID="SubmitButton" runat="server" OnClick="SubmitButton_Click" Text="Submit"/>
         </div>
+        <div style="margin: 10px></divstyle="margin:>
+            <p>Update Deceased Date Form. This will update the deceased date for an animal</p>
+        </div>
+        <div style="margin: 10px">
+            <asp:TextBox ID="updateid" runat="server"/>
+            <label style="margin-left: 10px">Animal ID</label>
+        </div>
+        <div style="margin: 10px">
+            <asp:TextBox ID="updatedeath" placeholder="yyyy-mm-dd" runat="server"/>
+            <label style="margin-left: 10px" >Deceased Date:</label>
+        </div>
+        <div style="margin: 10px">
+            <asp:Button runat="server" Text="Update" OnClick="Update_Click"/>
+            <asp:Literal ID="updateMessage" runat ="server" />
+        </div>
         <div>
             <asp:Literal ID="reportTable" runat ="server" />
         </div>
