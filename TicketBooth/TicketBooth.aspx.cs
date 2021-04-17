@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace TicketBooth
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class TicketBooth : System.Web.UI.Page
     {
         string connection = "Server=team4zoodb.mysql.database.azure.com; Port=3306; Database=zoo; Uid=Team4@team4zoodb; Pwd=4thTeamRocks; SslMode=Preferred;";
         protected void Page_Load(object sender, EventArgs e)
