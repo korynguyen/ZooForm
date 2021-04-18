@@ -8,7 +8,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="margin: 10px">
+            <asp:TextBox ID="BoothID" runat="server"/>
+            <label style="margin-left: 10px">BoothID:</label>
         </div>
     </form>
 </body>

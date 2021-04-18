@@ -55,13 +55,14 @@ namespace Zoo2
             {
                 try {
                     sqlConnection.Open();
-                    // Call the stored routine submitemployee (I custom created it inside mySQL) which will insert all the info from the webform. The parameter are in the comment below
+
+                    //number of columns in report
                     int numberOfCols = 0;
 
                     // generateString generates the sql statement for the query. numberOfCals being passedbyreference
                     string sql = generateString(ref numberOfCols);
 
-                    MySqlCommand sqlCmd = new MySqlCommand(sql, sqlConnection);//(@s_ID, @s_FName, @s_MInitial, @s_LName, @s_StartDate, @s_Addr, @s_Phone, @s_Sex, @s_DOB)
+                    MySqlCommand sqlCmd = new MySqlCommand(sql, sqlConnection);// SELECT (list of attributes checked off) FROM animal WHERE (list of attributes filled out);
                     MySqlDataReader rdr = sqlCmd.ExecuteReader();
 
                     //starts table element and adds header row 
@@ -79,7 +80,6 @@ namespace Zoo2
                         for(int i = 0; i < numberOfCols; i++)
                         {
                             //adding the data value for the column
-                            System.Diagnostics.Debug.WriteLine("gets here" + i);
                             System.Diagnostics.Debug.WriteLine(rdr[i].ToString());
 
                             dynamicTable += "<td style=\"margin-left:20px\">" + rdr[i].ToString() + "</td>";
@@ -91,7 +91,6 @@ namespace Zoo2
 
                     dynamicTable += "</table>";
 
-                    //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Form Submitted" + "');", true); // pop up message when it is done submitting
                     sqlConnection.Close();
 
                     //adding the table to the webpage
