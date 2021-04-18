@@ -217,6 +217,7 @@
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TicketBooth.aspx.cs">
       <DependentUpon>TicketBooth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
