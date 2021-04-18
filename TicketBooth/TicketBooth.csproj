@@ -211,21 +211,18 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
-=======
     <Compile Include="TicketBooth.aspx.cs">
       <DependentUpon>TicketBooth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TicketBooth.aspx.designer.cs">
       <DependentUpon>TicketBooth.aspx</DependentUpon>
->>>>>>> c1f67f495ec706e6901b3441928bf76b2d32af3a
     </Compile>
   </ItemGroup>
   <ItemGroup>
