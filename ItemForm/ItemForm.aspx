@@ -32,6 +32,22 @@
         </div>
 
                 <div>
+            <label style="margin-left: 50px">UPDATE STOCK. This adds to the current stock in the database.</label>
+        </div>
+        <div style="margin: 10px">
+            <asp:TextBox ID="updateid" runat="server"/>
+            <label style="margin-left: 10px">Item ID: </label>
+        </div>
+        <div style="margin: 10px">
+            <asp:TextBox ID="updatestock" runat="server" />
+            <label style="margin-left: 10px">Amount of stock to add:</label>
+        </div>
+        <div style="margin: 10px"> 
+            <asp:Button ID="updateButton" runat="server" OnClick="UpdateButton_Click" Text="Update"/>
+            <asp:Literal ID="updateMessage" runat ="server" />
+        </div>
+
+        <div>
             <label style="margin-left: 50px">ITEM REPORT</label>
             <p>Enter the fields you want to search by. Click the left checkbox to show the attributes. Leave all checkboxes blank to show all attributes.</p>
         </div>

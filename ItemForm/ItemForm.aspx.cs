@@ -17,7 +17,30 @@ namespace ItemForm
         {
 
         }
+        protected void UpdateButton_Click(object sender, EventArgs e)
+        {
+            using (MySqlConnection sqlConnection = new MySqlConnection(connection))
+            {
+                try
+                {
+                    sqlConnection.Open();
 
+                    //have to remove dashes for sql statements on dates
+                    string sql = "UPDATE itemtype SET InStock = InStock + " + updatestock.Text + " WHERE ID = " + updateid.Text + ";";
+
+                    MySqlCommand sqlCmd = new MySqlCommand(sql, sqlConnection);//UPDATE animal SET DeceasedDate = newDate WHERE ID = animalId;
+                    sqlCmd.ExecuteNonQuery(); // execute query
+
+                    updateMessage.Text = "<p>Updated Stock for item with id " + updateid.Text + ".</p>";
+                    sqlConnection.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex.ToString());
+                }
+            }
+        }
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             using (MySqlConnection sqlConnection = new MySqlConnection(connection))
@@ -99,22 +122,22 @@ namespace ItemForm
             if (includeid.Checked)
             {
                 numberOfCols++;
-                query += "Name,";
+                query += "ID,";
             }
             if (includestock.Checked)
             {
                 numberOfCols++;
-                query += "ID,";
+                query += "InStock,";
             }
             if (includename.Checked)
             {
                 numberOfCols++;
-                query += "Breed,";
+                query += "Name,";
             }
             if (includegiftshopid.Checked)
             {
                 numberOfCols++;
-                query += "ArrivalDate,";
+                query += "GiftShop_ShopID,";
             }
 
 

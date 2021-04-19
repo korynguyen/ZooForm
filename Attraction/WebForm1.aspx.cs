@@ -18,7 +18,7 @@ namespace Attraction
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void SubmitButton_Click(object sender, EventArgs e)
         {
             //Specify and connect to the DB
             using (MySqlConnection sqlConnection = new MySqlConnection(connection))
