@@ -146,7 +146,7 @@ namespace Member_Form
                     sqlConnection.Close();
 
                     //adding the table to the webpage
-                    reportTable.Text = dynamicTable;
+                    MEMreport.Text = dynamicTable;
 
                 }
                 catch (Exception ex)

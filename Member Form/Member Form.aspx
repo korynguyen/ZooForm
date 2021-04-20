@@ -59,6 +59,11 @@
             <asp:Button ID="ReportMember" runat="server" OnClick="ReportMember_Click" Text="Submit"/>
         </p>
         <p>
+            <asp:Literal ID="MEMreport" runat ="server" />
+        </p>
+        <p>
+            &nbsp;</p>
+        <p>
             &nbsp;</p>
     </form>
 </body>
