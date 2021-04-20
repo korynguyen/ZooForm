@@ -51,9 +51,9 @@
             <asp:TextBox ID="MemStartDate" runat="server"  placeholder="yyyy-mm-dd" />
             <label style="margin-left: 10px">Start Date (YEAR-MO-DA):</label>
             <label style="margin-left: 10px">Before Date:</label>
-            <asp:CheckBox ID="beforedate" runat="server" OnCheckedChanged="Beforedate_CheckedChanged"/>
+            <asp:CheckBox ID="beforedate" runat="server"/>
             <label style="margin-left: 10px">After Date:</label>
-            <asp:CheckBox ID="afterdate" runat="server" OnCheckedChanged="Afterdate_CheckedChanged"/>
+            <asp:CheckBox ID="afterdate" runat="server"/>
         </p>
         <p>
             <asp:Button ID="ReportMember" runat="server" OnClick="ReportMember_Click" Text="Submit"/>
