@@ -85,7 +85,6 @@ namespace Zoo2
                             dynamicTable += "<td style=\"margin-left:20px\">" + rdr[i].ToString() + "</td>";
                         }
                         dynamicTable += "</tr>";
-
                     }
 
 
