@@ -25,7 +25,7 @@ namespace Member_Form
             using (MySqlConnection sqlConnection = new MySqlConnection(connection))
             {
 
-                string sql = "INSERT INTO member (Email, FName, MInitial, LName) VALUES (" + AddMEmail.Text + ", " + AddMFname.Text + ", '" + AddMMInit.Text + "', " + AddMLName.Text + ");";
+                string sql = "INSERT INTO member (Email, FName, MInitial, LName) VALUES ('" + AddMEmail.Text + "', '" + AddMFname.Text + "', '" + AddMMInit.Text + "', '" + AddMLName.Text + "');";
 
                 sqlConnection.Open();
                 // Call the stored routine submitemployee (I custom created it inside mySQL) which will insert all the info from the webform. The parameter are in the comment below
@@ -87,7 +87,7 @@ namespace Member_Form
             using (MySqlConnection sqlConnection = new MySqlConnection(connection))
             {
 
-                string sql = "DELETE FROM member WHERE Email = " + Del_MEmail.Text + ";";
+                string sql = "DELETE FROM member WHERE Email = '" + Del_MEmail.Text + "';";
 
                 sqlConnection.Open();
                 // Call the stored routine submitemployee (I custom created it inside mySQL) which will insert all the info from the webform. The parameter are in the comment below
@@ -129,7 +129,7 @@ namespace Member_Form
                     {
                         //adding row to table
                         dynamicTable += "<tr>";
-                        for (int i = 0; i < numberOfCols; i++)
+                        for (int i = 0; i < 5; i++)
                         {
                             //adding the data value for the column
                             System.Diagnostics.Debug.WriteLine(rdr[i].ToString());
@@ -157,48 +157,47 @@ namespace Member_Form
         }
         protected string generateString(ref int numberOfCols)
         {
-            string query = "SELECT ";
+            string query = "SELECT * FROM member";
             string where = "";
 
-            if (includestartdate.Checked)
-            {
-                numberOfCols++;
-                query += "Start date,";
-            }
+           // if (includestartdate.Checked)
+           // {
+                if (MemStartDate.Text != "")
+                {
+                    if (beforedate.Checked)
+                        where += "StartDate < '" + MemStartDate.Text + "'";
+                    else if (afterdate.Checked)
+                        where += "StartDate > '" + MemStartDate.Text + "'";
+                    else
+                        where += "StartDate = '" + MemStartDate.Text + "'";
+                }
 
-            if (MemStartDate.Text != "")
-            {
-                if (beforedate.Checked)
-                    where += "StartDate < " + MemStartDate.Text + " AND ";
-                else if (afterdate.Checked)
-                    where += "StartDate > " + MemStartDate.Text + " AND ";
-                else
-                    where += "StartDate = " + MemStartDate.Text + " AND ";
-            }
-
-            query = query.Substring(0, query.Length - 1) + " FROM member";
-
+           // }
+           
             //adds the where clause if at least one field is filled out
             if (where.Length > 0)
             {
                 //substring removes final ","
-                query += " WHERE " + where.Substring(0, where.Length - 4);    //i do -4 to remove the final "AND "
+                numberOfCols = 5;
+                query += " WHERE " + where.Substring(0, where.Length);
             }
             else if (numberOfCols == 0)
             {
                 numberOfCols = 5;
-                query = "SELECT * FROM member";
+                //query = "SELECT * FROM member";
             }
+            
             //used for debugging, writes query to console
+            query += ";";
             System.Diagnostics.Debug.WriteLine(query);
-            return query + ";";
+            return query;
         }
 
         protected string generateHeader()
         {
             string head = "";
 
-            if (beforedate.Checked)
+         /*   if (beforedate.Checked)
             {
                 head += "<th  style=\"margin-left:20px\">StartDate</th>";
             }
@@ -206,7 +205,7 @@ namespace Member_Form
             {
                 head += "<th  style=\"margin-left:20px\">StartDate</th>";
             }
-
+            */
             if (head.Length == 0)
                 return "<th  style=\"margin-left:20px\">Email</th><th style=\"margin-left:20px\">FName</th><th style=\"margin-left:20px\">MInitial</th><th style=\"margin-left:20px\"LName</th><th style=\"margin-left:20px\">StartDate</th";
 
