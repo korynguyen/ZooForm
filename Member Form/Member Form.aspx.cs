@@ -99,5 +99,119 @@ namespace Member_Form
             }
         }
 
+        protected void ReportMember_Click(object sender, EventArgs e)
+        {
+            //Specify and connect to the DB
+            using (MySqlConnection sqlConnection = new MySqlConnection(connection))
+            {
+                try
+                {
+                    sqlConnection.Open();
+
+                    //number of columns in report
+                    int numberOfCols = 0;
+
+                    // generateString generates the sql statement for the query. numberOfCals being passedbyreference
+                    string sql = generateString(ref numberOfCols);
+
+                    MySqlCommand sqlCmd = new MySqlCommand(sql, sqlConnection);// SELECT (list of attributes checked off) FROM animal WHERE (list of attributes filled out);
+                    MySqlDataReader rdr = sqlCmd.ExecuteReader();
+
+                    //starts table element and adds header row 
+                    string dynamicTable = "<table cellpadding='5' cellspacing='0' style='border: 1px solid #ccc;font-size: 9pt;'><tr>";
+                    //generate header makes the header row for the table
+                    dynamicTable += generateHeader() + "</tr>";
+
+                    System.Diagnostics.Debug.WriteLine(numberOfCols);
+
+
+                    while (rdr.Read())
+                    {
+                        //adding row to table
+                        dynamicTable += "<tr>";
+                        for (int i = 0; i < numberOfCols; i++)
+                        {
+                            //adding the data value for the column
+                            System.Diagnostics.Debug.WriteLine(rdr[i].ToString());
+
+                            dynamicTable += "<td style=\"margin-left:20px\">" + rdr[i].ToString() + "</td>";
+                        }
+                        dynamicTable += "</tr>";
+
+                    }
+
+
+                    dynamicTable += "</table>";
+
+                    sqlConnection.Close();
+
+                    //adding the table to the webpage
+                    reportTable.Text = dynamicTable;
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+        }
+        protected string generateString(ref int numberOfCols)
+        {
+            string query = "SELECT ";
+            string where = "";
+
+            if (includestartdate.Checked)
+            {
+                numberOfCols++;
+                query += "Start date,";
+            }
+
+            if (MemStartDate.Text != "")
+            {
+                if (beforedate.Checked)
+                    where += "StartDate < " + MemStartDate.Text + " AND ";
+                else if (afterdate.Checked)
+                    where += "StartDate > " + MemStartDate.Text + " AND ";
+                else
+                    where += "StartDate = " + MemStartDate.Text + " AND ";
+            }
+
+            query = query.Substring(0, query.Length - 1) + " FROM member";
+
+            //adds the where clause if at least one field is filled out
+            if (where.Length > 0)
+            {
+                //substring removes final ","
+                query += " WHERE " + where.Substring(0, where.Length - 4);    //i do -4 to remove the final "AND "
+            }
+            else if (numberOfCols == 0)
+            {
+                numberOfCols = 5;
+                query = "SELECT * FROM member";
+            }
+            //used for debugging, writes query to console
+            System.Diagnostics.Debug.WriteLine(query);
+            return query + ";";
+        }
+
+        protected string generateHeader()
+        {
+            string head = "";
+
+            if (beforedate.Checked)
+            {
+                head += "<th  style=\"margin-left:20px\">StartDate</th>";
+            }
+            if (afterdate.Checked)
+            {
+                head += "<th  style=\"margin-left:20px\">StartDate</th>";
+            }
+
+            if (head.Length == 0)
+                return "<th  style=\"margin-left:20px\">Email</th><th style=\"margin-left:20px\">FName</th><th style=\"margin-left:20px\">MInitial</th><th style=\"margin-left:20px\"LName</th><th style=\"margin-left:20px\">StartDate</th";
+
+            return head;
+        }
+
     }
 }

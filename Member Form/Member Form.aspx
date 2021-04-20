@@ -43,6 +43,23 @@
         <p>
             <asp:Button ID="DeleteMember" runat="server" Text="Banish" OnClick="DeleteMember_Click" />
         </p>
+        <p>
+            <label style="margin-left: 50px">MEMBER REPORT. This is to specify a list of Members from the database.</label>
+        </p>
+        <p>
+            <asp:CheckBox ID="includestartdate" runat="server"/>
+            <asp:TextBox ID="MemStartDate" runat="server"  placeholder="yyyy-mm-dd" />
+            <label style="margin-left: 10px">Start Date (YEAR-MO-DA):</label>
+            <label style="margin-left: 10px">Before Date:</label>
+            <asp:CheckBox ID="beforedate" runat="server" OnCheckedChanged="Beforedate_CheckedChanged"/>
+            <label style="margin-left: 10px">After Date:</label>
+            <asp:CheckBox ID="afterdate" runat="server" OnCheckedChanged="Afterdate_CheckedChanged"/>
+        </p>
+        <p>
+            <asp:Button ID="ReportMember" runat="server" OnClick="ReportMember_Click" Text="Submit"/>
+        </p>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>
