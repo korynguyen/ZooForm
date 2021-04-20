@@ -38,7 +38,7 @@
         <p>
             <label style="margin-left: 50px">MEMBER DELETION. This is to delete any Member from the database.</label> </p>
         <p>
-            <asp:TextBox ID="Del_MEmail" runat="server" OnTextChanged="Del_MEmail_TextChanged"/>
+            <asp:TextBox ID="Del_MEmail" runat="server"/>
             &nbsp;Member Email</p>
         <p>
             <asp:Button ID="DeleteMember" runat="server" Text="Banish" OnClick="DeleteMember_Click" />
