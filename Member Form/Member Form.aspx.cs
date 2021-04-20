@@ -45,7 +45,7 @@ namespace Member_Form
                 {
                     sqlConnection.Open();
 
-                    string sql = "SELECT * FROM giftshop;";
+                    string sql = "SELECT * FROM member;";
 
                     MySqlCommand sqlCmd = new MySqlCommand(sql, sqlConnection);//(@s_ID, @s_FName, @s_MInitial, @s_LName, @s_StartDate, @s_Addr, @s_Phone, @s_Sex, @s_DOB)
                     MySqlDataReader rdr = sqlCmd.ExecuteReader();
@@ -53,14 +53,20 @@ namespace Member_Form
                     //starts table element and adds header row 
                     string dynamicTable = "<table cellpadding='5' cellspacing='0' style='border: 1px solid #ccc;font-size: 9pt;'><tr>";
                     //adding header row of table
-                    dynamicTable += "<th>Giftshop ID</th></tr>";
+
+                    dynamicTable += "<th  style=\"margin-left:20px\">Email</th><th style=\"margin-left:20px\">FName</th><th style=\"margin-left:20px\">MInitial</th><th style=\"margin-left:20px\"LName</th><th style=\"margin-left:20px\">StartDate</th>";
 
                     while (rdr.Read())
                     {
                         //adding row to table
                         dynamicTable += "<tr>";
-                        dynamicTable += "<td style=\"margin-left:20px\">" + rdr[0].ToString() + "</td>";
+                        for (int i = 0; i < 5; i++)
+                        {
+                            //adding the data value for the column
+                            System.Diagnostics.Debug.WriteLine(rdr[i].ToString());
 
+                            dynamicTable += "<td style=\"margin-left:20px\">" + rdr[i].ToString() + "</td>";
+                        }
                         dynamicTable += "</tr>";
 
                     }
